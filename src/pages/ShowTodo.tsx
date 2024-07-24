@@ -19,9 +19,12 @@ const ShowTodo: React.FC = () => {
     (state: RootState) => state.todos
   );
 
-  useEffect(() => {
-    dispatch(fetchTodo());
-  }, [dispatch]);
+ useEffect(() => {
+    if(todos.length===0){
+      dispatch(fetchTodo());
+    }
+   
+  }, []);
 
   const handleDeleteTodo = (Id: number) => {
     dispatch(deleteTodo(Id));
