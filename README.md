@@ -12,3 +12,8 @@ responsive for small screen
 
 ![image](https://github.com/user-attachments/assets/7637bce3-e8d9-4f59-8c1a-494cdcdec775)
 
+Adding newtodo 
+
+![image](https://github.com/user-attachments/assets/805131f9-d881-4e5a-96ef-e691327ca5b9)
+
+
