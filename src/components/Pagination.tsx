@@ -18,7 +18,7 @@ const Pagination: React.FC<PaginationProps> = ({ todosPerPage, totalTodos, pagin
         <nav>
             <ul className="flex justify-center mt-4">
                 {pageNumbers.map(number => (
-                    <li key={number} className={`mx-0 px-3 py-1 border rounded cursor-pointer ${currentPage === number ? 'bg-blue-500 text-white' : 'bg-white text-blue-500'}`} onClick={() => paginate(number)}>
+                    <li key={number} title={`page ${number}`} className={`mx-0 px-3 py-1 border rounded cursor-pointer ${currentPage === number ? 'bg-blue-500 text-white' : 'bg-white text-blue-500'}`} onClick={() => paginate(number)}>
                         {number}
                     </li>
                 ))}
