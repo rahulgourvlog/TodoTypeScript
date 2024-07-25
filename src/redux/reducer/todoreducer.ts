@@ -4,6 +4,7 @@ import {
   FETCH_TODO_FAILURE,
   FETCH_TODO_LOADING,
   FETCH_TODO_SUCCESS,
+  TOGGLE_TODO,
 } from "../actionTypes";
 
 interface Todo {
@@ -26,6 +27,8 @@ const initialState: TodoState = {
 };
 
 export const todoreducer = (state = initialState, action: any): TodoState => {
+  console.log(state, "state");
+  //console.log("todoAdd",todos: [...state.todos, action.payload])
   switch (action.type) {
     case FETCH_TODO_LOADING:
       return { ...state, loading: true, error: false };
@@ -41,6 +44,17 @@ export const todoreducer = (state = initialState, action: any): TodoState => {
         ...state,
         todos: state.todos.filter((todo) => todo.id != action.payload),
       };
+
+    case TOGGLE_TODO:
+      return {
+        ...state,
+        todos: state.todos.map((todo) =>
+          todo.id === action.payload
+            ? { ...todo, completed: !todo.completed }
+            : todo
+        ),
+      };
+
     default:
       return state;
   }
