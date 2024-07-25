@@ -5,6 +5,7 @@ import {
   FETCH_TODO_FAILURE,
   FETCH_TODO_LOADING,
   FETCH_TODO_SUCCESS,
+  TOGGLE_TODO,
 } from "./actionTypes";
 import { Dispatch } from "redux";
 
@@ -38,14 +39,19 @@ interface FetchTodoLoadingAction {
     type: typeof DELETE_TODO;
     payload: number;
   }
+
+  interface ToggleTodoAction {
+    type: typeof TOGGLE_TODO;
+    payload: number;
+  }
   
   type TodoActionTypes =
     | FetchTodoLoadingAction
     | FetchTodoSuccessAction
     | FetchTodoFailureAction
     | AddTodoAction
-    | DeleteTodoAction;
-
+    | DeleteTodoAction
+|ToggleTodoAction;
 
 export const fetchTodo = () => {
   return async (dispatch: Dispatch<TodoActionTypes>) => {
@@ -80,4 +86,13 @@ export const deleteTodo=(id:number)=>{
             dispatch({type:DELETE_TODO,payload:id})
         }
     )
+}
+
+
+export const toggleTodos=(id:number)=>{
+  return (
+    (dispatch: Dispatch<TodoActionTypes>)=>{
+      dispatch({type:TOGGLE_TODO,payload:id})
+    }
+  )
 }
