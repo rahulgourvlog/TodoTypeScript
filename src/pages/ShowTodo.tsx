@@ -2,30 +2,34 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { AppDispatch, RootState } from "../redux/store";
-import { deleteTodo, fetchTodo } from "../redux/actions";
+import { deleteTodo, fetchTodo, toggleTodos } from "../redux/actions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import Pagination from "../components/Pagination";
 
 interface Todo {
-    userId: number;
-    id: number;
-    title: string;
-    completed: boolean;
-  }
+  userId: number;
+  id: number;
+  title: string;
+  completed: boolean;
+}
 const ShowTodo: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { todos, loading, error } = useSelector(
     (state: RootState) => state.todos
   );
 
- useEffect(() => {
-    if(todos.length===0){
+  useEffect(() => {
+    if (todos.length === 0) {
       dispatch(fetchTodo());
     }
-   
   }, []);
+  console.log(todos, "todos");
 
+  const toggleTodo=(id:number)=>{
+    dispatch(toggleTodos(id))
+  }
+  
   const handleDeleteTodo = (Id: number) => {
     dispatch(deleteTodo(Id));
   };
@@ -45,13 +49,21 @@ const ShowTodo: React.FC = () => {
         {loading && <p>Loading...</p>}
         {error && <p className="text-red-500">{error}</p>}
         <div className="pl-5">
-          {currentTodos.map((todo:Todo) => (
+          {/* {todos.filter((todo:Todo)=>todo.id==5000)} */}
+          {currentTodos.map((todo: Todo) => (
             <li
               key={todo.id}
               className="ml-2 mb-2 list-none hover:bg-blue-400 cursor-pointer"
             >
               <span>
-                {todo.title} - {todo.completed ? "Completed" : "Pending"}
+                <input
+                  type="checkbox"
+                  checked={todo.completed}
+                  readOnly
+                  className="mr-2"
+                  onChange={()=>{toggleTodo(todo.id)}}
+                />
+                {todo.title}
               </span>
               <FontAwesomeIcon
                 icon={faTrashAlt}
