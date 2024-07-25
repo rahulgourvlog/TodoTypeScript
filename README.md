@@ -6,7 +6,8 @@
 
 #Adding the todo through Add Todo 
 
-![image](https://github.com/user-attachments/assets/1a37340a-7726-4747-bf67-c68aca4e2242)
+![image](https://github.com/user-attachments/assets/557bc7d7-0f63-4a26-9d44-5933d9762c6b)
+
 
 responsive for small screen
 
