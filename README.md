@@ -20,3 +20,8 @@ Adding newtodo
 todo Pending & completed toggle
 ![image](https://github.com/user-attachments/assets/95c259f7-8021-44be-8a50-d0996a5e87d2)
 
+while data fetching from an Api Loader
+![image](https://github.com/user-attachments/assets/5d105cbc-40d2-42d7-83ec-92cc35810b11)
+
+
+
