@@ -6,6 +6,7 @@ import { deleteTodo, fetchTodo, toggleTodos } from "../redux/actions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import Pagination from "../components/Pagination";
+import Spinner from "../components/Spinner";
 
 interface Todo {
   userId: number;
@@ -46,7 +47,7 @@ const ShowTodo: React.FC = () => {
     <>
       <div>
         <h2 className="text-2xl mb-4">Todo List</h2>
-        {loading && <p>Loading...</p>}
+        {loading && <Spinner/>}
         {error && <p className="text-red-500">{error}</p>}
         <div className="pl-5">
           {/* {todos.filter((todo:Todo)=>todo.id==5000)} */}
