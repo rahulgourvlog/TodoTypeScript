@@ -61,8 +61,9 @@ const ShowTodo: React.FC = () => {
                   type="checkbox"
                   checked={todo.completed}
                   readOnly
-                  className="mr-2"
+                  className="mr-2 cursor-pointer"
                   onChange={()=>{toggleTodo(todo.id)}}
+                  title={todo.completed ? "task completed" : "task pending"}
                 />
                 {todo.title}
               </span>
@@ -70,6 +71,7 @@ const ShowTodo: React.FC = () => {
                 icon={faTrashAlt}
                 className="text-red-500 cursor-pointer pl-1"
                 onClick={() => handleDeleteTodo(todo.id)}
+                title="delete task"
               />
             </li>
           ))}
