@@ -16,4 +16,6 @@ Adding newtodo
 
 ![image](https://github.com/user-attachments/assets/805131f9-d881-4e5a-96ef-e691327ca5b9)
 
+todo Pending & completed toggle
+![image](https://github.com/user-attachments/assets/95c259f7-8021-44be-8a50-d0996a5e87d2)
 
